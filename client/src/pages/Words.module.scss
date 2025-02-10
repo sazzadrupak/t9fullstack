@@ -1,0 +1,33 @@
+.container {
+  margin-top: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(#d5d5d5, 0.4);
+  border-radius: 4px;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 600px;
+  max-height: 700px;
+  &:empty {
+    border: 0;
+  }
+}
+.wordRow {
+  display: flex;
+  align-items: center;
+  height: 31px;
+  border-bottom: 1px solid rgba(#d5d5d5, 0.4);
+  flex-shrink: 0;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+.wordRow:nth-child(odd) {
+  background: rgba(#d5d5d5, 0.4);
+}
+.word {
+  padding-left: 8px;
+  font-size: $font-16;
+}

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font: 400 $font-12 'Roboto', sans-serif;
+}
+
+#root {
+  // stylelint-disable-line selector-max-id
+  height: 100%;
+}

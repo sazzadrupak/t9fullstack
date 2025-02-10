@@ -1,0 +1,23 @@
+services:
+  server:
+    build:
+      context: ./server
+    container_name: server
+    ports:
+      - '8000:80'
+    volumes:
+      - ./server/app:/code/app
+  client:
+    build:
+      context: ./client
+    depends_on:
+      - server
+    container_name: client
+    volumes:
+      - '/usr/src/app/node_modules'
+      - './client:/usr/src/app'
+    ports:
+      - '3000:3000'
+      - 51204:51204
+    environment:
+      - NODE_ENV=development
