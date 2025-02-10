@@ -1,6 +1,6 @@
 import Skeleton from '../components/Skeleton';
 
-import s from './WordsSkeleton.module.scss';
+import * as s from './WordsSkeleton.css.ts';
 
 /**
  * Component for mimicking the layout of the words page while data is loading

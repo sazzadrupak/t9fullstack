@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { ChangeEvent } from 'react';
 
-import s from './TextField.module.scss';
+import * as s from './TextField.css.ts';
 
 interface Props {
   className?: string;

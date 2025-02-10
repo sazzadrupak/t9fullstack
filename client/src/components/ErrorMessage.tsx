@@ -1,4 +1,4 @@
-import s from './ErrorMessage.module.scss';
+import * as s from './ErrorMessage.css.ts';
 
 /**
  * Props interface for the ErrorMessage component

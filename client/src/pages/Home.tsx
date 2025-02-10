@@ -6,7 +6,8 @@ import Words from './Words';
 import WordsSkeleton from './WordsSkeleton';
 
 import { useThrottledValue, useWords } from '../hooks';
-import s from './Home.module.scss';
+
+import * as s from './Home.css.ts';
 
 const THROTTLE_MS = 500;
 

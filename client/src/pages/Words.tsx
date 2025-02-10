@@ -1,5 +1,4 @@
-import s from './Words.module.scss';
-
+import * as s from './Words.css.ts';
 interface Props {
   words: string[];
 }
