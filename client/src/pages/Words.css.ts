@@ -12,7 +12,7 @@ export const container = style({
   overflowY: 'auto',
   width: '100%',
   maxWidth: 600,
-  maxHeight: 700,
+  maxHeight: 650,
   ':empty': {
     border: 0,
   },

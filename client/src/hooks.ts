@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
 /**
@@ -30,9 +30,21 @@ export function useThrottledValue<T>(input: T, delay: number): T {
 export const useWords = (digits: string) =>
   useQuery<string[], Error>({
     queryKey: ['words', digits],
-    queryFn: () =>
-      axios
-        .get<string[]>(`http://localhost:8000/words?digits=${digits}`)
-        .then((res) => res.data),
+    queryFn: async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/words?digits=${digits}`
+        );
+        return response.data;
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          throw new Error(error.response?.data?.detail || error.message);
+        } else if (error instanceof Error) {
+          throw new Error(error.message);
+        }
+        throw new Error('Unknown error');
+      }
+    },
     enabled: !!digits,
+    retry: false,
   });

@@ -23,7 +23,7 @@ const Home = (): JSX.Element => {
   };
 
   const throttledInput = useThrottledValue(filterText, THROTTLE_MS);
-  const { data: words, isFetching, error } = useWords(throttledInput);
+  const { data: words, isLoading, error } = useWords(throttledInput);
 
   return (
     <div className={s.container}>
@@ -36,7 +36,7 @@ const Home = (): JSX.Element => {
           onChange={handleFilterTextChange}
         />
       </div>
-      {isFetching && <WordsSkeleton />}
+      {isLoading && <WordsSkeleton />}
       {error && <ErrorMessage error={error.message} />}
       {words && <Words words={words} />}
     </div>

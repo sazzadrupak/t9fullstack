@@ -2,11 +2,10 @@ import { style } from '@vanilla-extract/css';
 import { FONT_BIG, FONT_WEIGHT_SEMI_BOLD } from '../shared.css';
 
 export const container = style({
-  padding: 32,
+  padding: '32px 32px 0 32px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
 });
 
 export const header = style({

@@ -15,7 +15,6 @@ A FastAPI-based web service implementing T9 predictive text functionality using 
 
 ## Table of Contents
 
-- [Tech Stack](#tech-stack)
 - [How to run](#how-to-run)
 - [Tech Stack](#tech-stack)
 - [Server overview](#server-overview)
@@ -40,9 +39,13 @@ A FastAPI-based web service implementing T9 predictive text functionality using 
 docker compose up --build
 ```
 
+If you see the following output on your terminal, that means the containerization was successful and the web service runs successfully.
+
+![plot](./Containerization-success.png)
+
 - Once the images of both `server` and `client` build and containers runs successfully, you can access both server and client application through respective url.
 
-- server url: `http://localhost:8000/`
+- server url: `http://localhost:8000/docs`
 - client url: `http://localhost:3000/`
 
 ## Tech Stack
@@ -63,6 +66,7 @@ docker compose up --build
 - **Vitest** - Testing framework
 - **React query** - Data fetching and caching
 - **axios** - Making HTTP requests
+- **Vanilla-extract** - Write stylesheets in TypeScript
 
 ## Server verview
 
@@ -209,13 +213,19 @@ A JavaScript library that allows you to create these beautiful, animated loading
 
 As you create and run react application by adding components, you need a library that provides component level test feature. React testing library is a lightweight solution for testing React component as well as hooks. As my client application has couple of custom hooks and functional components, I choose this library to write test cases.
 
-## API Documentation
+## API Documentation Demo
 
 I have used FastAPI as it is light and easy to implement and run APIs. Besides, it provides **SwaggerUI** which gives the documentation of the APIs, so user can read and test API without implementing into a front end or using any third party application (e.g. Postman)
 For example, if you use this url `http://localhost:8000/docs#/`, you'll see the UI of API in SwaggerUI format.
 ![plot](./T9-Words-Service-with-Trie.png)
 
 **N.B. To learn more about the API, please visit the url.**
+
+## Client UI Demo
+
+The client service is built with React and TypeScript along with React Query, Axios, Vanilla extract. Once the application runs successfully, using the client URL, you can see the following UI. The UI has one input field to
+
+![plot](./T9-Client.png)
 
 ## Testing
 

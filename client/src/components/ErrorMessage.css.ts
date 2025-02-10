@@ -3,6 +3,7 @@ import { COLOR_DANGER, FONT_REGULAR } from '../shared.css';
 
 export const container = style({
   margin: 5,
+  width: 600,
 });
 
 export const error = style({
