@@ -46,6 +46,7 @@ class T9Trie:
 
         t9_digits = word_to_t9(word)
         if not t9_digits:
+            print(f"Warning: Skipping invalid word '{word}'")
             return
 
         node = self.root
@@ -60,10 +61,12 @@ class T9Trie:
         Recursively collect all words in the subtree starting
         from the given node. This is a helper function for prefix matching.
         """
-
-        result = list(node.words)
-        for child in node.children.values():
-            result.extend(self._find_prefix_matches(child))
+        result = []
+        stack = [node]
+        while stack:
+            current = stack.pop()
+            result.extend(current.words)
+            stack.extend(current.children.values())
         return result
 
     def search(self, digits: str) -> List[str]:
@@ -99,7 +102,4 @@ class T9Trie:
                 return []
             node = node.children[digit]
 
-        if strict_mode:
-            return list(node.words)
-
-        return self._find_prefix_matches(node)
+        return list(node.words) if strict_mode else self._find_prefix_matches(node)

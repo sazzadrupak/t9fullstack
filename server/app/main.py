@@ -24,11 +24,12 @@ def load_words():
         return
 
     with open(file_path, 'r', encoding="utf-8") as file:
+        words_added = set()
         for word in file:
             word = word.strip().lower()
-
-            if word:
+            if word and word not in words_added:
                 T9_TRIE.insert(word)
+                words_added.add(word)
 
 
 @asynccontextmanager
